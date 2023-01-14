@@ -10,3 +10,6 @@ class Level:
         # sprite groups
         self.all_sprites = pygame.sprite.Group()
     def run(self, dt):
+        self.display_surface.fill('black')
+        self.all_sprites.draw(self.display_surface)
+        self.all_sprites.update()

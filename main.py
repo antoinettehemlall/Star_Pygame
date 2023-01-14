@@ -1,11 +1,14 @@
 import pygame, sys
 from settings import *
+from level import Level
 
 class Game:
     def __init__(self):
         pygame.init()
         self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+        pygame.display.set_caption('Star Game')
         self.clock = pygame.time.Clock()
+        self.level = Level()
 
     def run(self):
         while True:
@@ -14,7 +17,8 @@ class Game:
                     pygame.quit()
                     sys.exit()
 
-            dt =self.clock.tick() / 1000
+            dt = self.clock.tick() / 1000
+            self.level.run(dt)
             pygame.display.update()
 
 if __name__ == '__main__':
